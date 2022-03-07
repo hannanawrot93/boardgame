@@ -1,0 +1,43 @@
+  <section class="all-games">
+    <p class="subtitle" ng-if="TablesListCtrl.tableslist.length>0">Aktualne gry:</p>
+    <p class="subtitle" ng-if="TablesListCtrl.tableslist.length==0">W tym momencie nie ma żadnej dostępnej gry.</p>
+
+    <div class="table-responsive" ng-if="TablesListCtrl.tableslist.length>0">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Players</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="table in TablesListCtrl.tableslist" ng-if="table.free">
+          <td>#{{table.id}}</br>
+            <span class="glyphicon glyphicon-user" ng-if="table.botEnable"></span><br>
+            <span class="glyphicon glyphicon-lock" ng-if="table.closed"></span>
+
+          </td>
+          <td>{{table.players[0].login}}</br>
+          {{table.players[1].login}}</br>
+          {{table.players[2].login}}</br>
+          {{table.players[3].login}}</td>
+
+          <td class="append-btn">
+            <div class="form-group" ng-if="table.closed">
+              <input type="text" class="form-control" placeholder="Hasło" ng-model="TablesListCtrl.appendPassword"
+                     minlength="4" maxlength="4">
+              {{TablesListCtrl.passError}}
+            </div>
+            <div class="form-group">
+              <button ng-click="TablesListCtrl.appendToTable({param1: table.id, param2: TablesListCtrl.appendPassword})" class="btn btn-light"
+              ng-disabled="((table.closed))  &&  (!TablesListCtrl.appendPassword)">Dołącz</button>
+            </div>
+
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>

@@ -1,0 +1,125 @@
+.leave-btn{
+  margin: 10px auto;
+}
+.board-container{
+  margin: 50px auto;
+  width: 800px;
+  height: 800px;
+  position: relative;
+  display: table;
+  font-size: 14px;
+
+  @include media(phone){
+    width: 270px;
+    height: 270px;
+    font-size: 9px;
+  }
+
+  @include media(tablet){
+    width: 500px;
+    height: 500px;
+    font-size: 12px;
+  }
+
+  @include media(medium-screens){
+    width: 600px;
+    height: 600px;
+    font-size: 12px;
+  }
+
+  #board-canvas{
+    width: 100%;
+    height: 100%;
+    background-image:url('../../../assets/images/board800.png');
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1000;
+
+    @include media(phone){
+      background-image:url('../../../assets/images/board270.png');
+    }
+
+    @include media(tablet){
+      background-image:url('../../../assets/images/board500.png');
+    }
+
+    @include media(medium-screens){
+      background-image:url('../../../assets/images/board600.png');
+    }
+  }
+   .pawn{
+    width: 21px;
+    height: 21px;
+    z-index: 10000;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px #000 solid;
+
+    @include media(phone){
+      width: 7px;
+      height: 7px;
+      border: 1px #000 solid;
+    }
+    @include media(tablet){
+      width: 10px;
+      height: 10px;
+    }
+    @include media(medium-screens){
+      width: 13px;
+      height: 13px;
+    }
+
+    &#red-1{
+      background-color: red;
+    }
+
+    &#blue-2{
+      background-color: blue;
+    }
+
+    &#green-3{
+      background-color: green;
+    }
+
+    &#yellow-4{
+      background-color: yellow;
+    }
+  }
+
+  .btn-wrapper{
+     display: table-cell;
+     vertical-align: middle;
+     width: 100%;
+     height: 100%;
+    text-align: center;
+
+    .roll-btn{
+      display: block;
+      margin: auto;
+      width: 100px;
+      height: 50px;
+    }
+    .rand{
+      font-size: 50px;
+      font-weight: 600;
+    }
+
+    @include media(phone){
+      .roll-btn{
+        display: block;
+        margin: auto;
+        width: 50px;
+        height: 25px;
+        font-size: 9px !important;
+      }
+      .rand{
+        font-size: 20px;
+        font-weight: 400;
+      }
+    }
+   }
+
+}

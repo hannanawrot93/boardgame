@@ -1,0 +1,57 @@
+.game-dialog{
+  margin: 50px auto;
+  font-size: 14px;
+  width: 800px;
+  .prod-error{
+    color: red;
+  }
+  .shop-products{
+    padding-left: 0;
+
+    input{
+      width: 70px;
+    }
+    .prod-name{
+      text-transform: uppercase;
+      color: red;
+      font-weight: bold;
+    }
+  }
+
+  li{
+    list-style-type: none !important;
+    padding: 10px;
+
+    &.even{
+      background-color: #4d79ff;
+    }
+
+    &.odd{
+      background-color: #0033cc;
+    }
+
+  }
+
+  input{
+    color: #337ab7 !important;
+  }
+  button{
+    margin: 10px auto;
+  }
+  @include media(phone){
+    width: 270px;
+    font-size: 11px;
+  }
+
+  @include media(tablet){
+    width: 500px;
+    font-size: 12px;
+  }
+
+  @include media(medium-screens){
+    width: 600px;
+    font-size: 13px;
+  }
+
+
+}

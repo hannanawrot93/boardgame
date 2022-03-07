@@ -1,0 +1,234 @@
+<section class="player-state">
+  <div class="my-state" ng-if="playerStateCtrl.isRunning">
+
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <button data-toggle="collapse" data-target="#demoplot" class="btn btn-primary btn-block">Działka i projekt domu</button>
+        <div id="demoplot" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="well text-primary">
+              <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+                  <div>
+                    <span class="strong">Działka budowlana</span>
+                  </div>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 0}">{{playerStateCtrl.players[0].login}} </span>
+                      <input type="checkbox" ng-checked="playerStateCtrl.buildProgress[0][0].id == 3" disabled/>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 1}">{{playerStateCtrl.players[1].login}} </span>
+                      <input type="checkbox" ng-checked="playerStateCtrl.buildProgress[1][0].id == 3" disabled/>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 2}">{{playerStateCtrl.players[2].login}} </span>
+                      <input type="checkbox" ng-checked="playerStateCtrl.buildProgress[2][0].id == 3" disabled/>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 3}">{{playerStateCtrl.players[3].login}} </span>
+                      <input type="checkbox" ng-checked="playerStateCtrl.buildProgress[3][0].id == 3" disabled/>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+            <div class="well text-primary">
+              <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+                  <div>
+                    <span class="strong">Projekt domu</span>
+                  </div>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 0}">{{playerStateCtrl.players[0].login}} </span>
+                      <input type="checkbox" ng-checked="playerStateCtrl.buildProgress[0][1].id == 3" disabled/>
+                      <div>
+                        <span ng-class="{'text-danger': playerStateCtrl.buildProgress[0][1].id == 0,
+                        'text-warning': playerStateCtrl.buildProgress[0][1].id == 1,
+                        'text-info': playerStateCtrl.buildProgress[0][1].id == 2,
+                        'text-success': playerStateCtrl.buildProgress[0][1].id == 3}">
+                          Status: {{playerStateCtrl.buildProgress[0][1].name}}</span>
+
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 1}">{{playerStateCtrl.players[1].login}} </span>
+                      <input type="checkbox"  ng-checked="playerStateCtrl.buildProgress[1][1].id == 3" disabled/>
+                      <div>
+                        <span ng-class="{'text-danger': playerStateCtrl.buildProgress[1][1].id == 0,
+                        'text-warning': playerStateCtrl.buildProgress[1][1].id == 1,
+                        'text-info': playerStateCtrl.buildProgress[1][1].id == 2,
+                        'text-success': playerStateCtrl.buildProgress[1][1].id == 3}">
+                          Status: {{playerStateCtrl.buildProgress[1][1].name}}</span>
+
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 2}">{{playerStateCtrl.players[2].login}} </span>
+                      <input type="checkbox"  ng-checked="playerStateCtrl.buildProgress[2][1].id == 3" disabled/>
+                      <div>
+                        <span ng-class="{'text-danger': playerStateCtrl.buildProgress[2][1].id == 0,
+                        'text-warning': playerStateCtrl.buildProgress[2][1].id == 1,
+                        'text-info': playerStateCtrl.buildProgress[2][1].id == 2,
+                        'text-success': playerStateCtrl.buildProgress[2][1].id == 3}">
+                          Status: {{playerStateCtrl.buildProgress[2][1].name}}</span>
+
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 3}">{{playerStateCtrl.players[3].login}} </span>
+                      <input type="checkbox"  ng-checked="playerStateCtrl.buildProgress[3][1].id == 3" disabled/>
+                      <div>
+                        <span ng-class="{'text-danger': playerStateCtrl.buildProgress[3][1].id == 0,
+                        'text-warning': playerStateCtrl.buildProgress[3][1].id == 1,
+                        'text-info': playerStateCtrl.buildProgress[3][1].id == 2,
+                        'text-success': playerStateCtrl.buildProgress[3][1].id == 3}">
+                          Status: {{playerStateCtrl.buildProgress[3][1].name}}</span>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" ng-repeat="stage in playerStateCtrl.allStages">
+            <button data-toggle="collapse" data-target="#demo{{$index}}" class="btn btn-primary btn-block">{{stage}}</button>
+        <div id="demo{{$index}}" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="well text-primary" ng-repeat="product in playerStateCtrl.allProducts | filter: { stage: stage }">
+              <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+                  <div>
+                    <span class="strong">{{product.name}}</span>
+                  </div>
+                  <div>
+                    Potrzebne: <span>{{product.count}} {{product.unit}}</span>
+                  </div>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 0}">{{playerStateCtrl.players[0].login}} </span>
+                      <input type="checkbox" ng-checked="product.actualLacks[0] == 0" disabled/>
+                      <div>
+                        <span class="text-success">ma: {{product.actualCounts[0]}}</span> /
+                        <span class="text-danger">brakuje: {{product.actualLacks[0]}}</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 1}">{{playerStateCtrl.players[1].login}} </span>
+                      <input type="checkbox" ng-checked="product.actualLacks[1] == 0" disabled/>
+                      <div>
+                        <span class="text-success">ma: {{product.actualCounts[1]}}</span> /
+                        <span class="text-danger">brakuje: {{product.actualLacks[1]}}</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 2}">{{playerStateCtrl.players[2].login}} </span>
+                      <input type="checkbox" ng-checked="product.actualLacks[2] == 0" disabled/>
+                      <div>
+                        <span class="text-success">ma: {{product.actualCounts[2]}}</span> /
+                        <span class="text-danger">brakuje: {{product.actualLacks[2]}}</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong"  ng-class="{'text-warning': playerStateCtrl.myId == 3}">{{playerStateCtrl.players[3].login}} </span>
+                      <input type="checkbox" ng-checked="product.actualLacks[3] == 0" disabled/>
+                      <div>
+                        <span class="text-success">ma: {{product.actualCounts[3]}}</span> /
+                        <span class="text-danger">brakuje: {{product.actualLacks[3]}}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+            <div class="well firm text-primary">
+              <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+                  <div>
+                    <span class="strong">{{stage}} - Firma</span>
+                  </div>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 0}">{{playerStateCtrl.players[0].login}} </span>
+                      <input type="checkbox" ng-checked="playerStateCtrl.buildProgress[0][$index+2].id == 3" disabled/>
+                      <div>
+                        <span ng-class="{'text-danger': playerStateCtrl.buildProgress[0][$index+2].id == 0,
+                        'text-warning': playerStateCtrl.buildProgress[0][$index+2].id == 1,
+                        'text-info': playerStateCtrl.buildProgress[0][$index+2].id == 2,
+                        'text-success': playerStateCtrl.buildProgress[0][$index+2].id == 3}">
+                          Status: {{playerStateCtrl.buildProgress[0][$index+2].name}}</span>
+
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 1}">{{playerStateCtrl.players[1].login}} </span>
+                      <input type="checkbox" ng-checked="playerStateCtrl.buildProgress[1][$index+2].id == 3" disabled/>
+                      <div>
+                        <span ng-class="{'text-danger': playerStateCtrl.buildProgress[1][$index+2].id == 0,
+                        'text-warning': playerStateCtrl.buildProgress[1][$index+2].id == 1,
+                        'text-info': playerStateCtrl.buildProgress[1][$index+2].id == 2,
+                        'text-success': playerStateCtrl.buildProgress[1][$index+2].id == 3}">
+                          Status: {{playerStateCtrl.buildProgress[1][$index+2].name}}</span>
+
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 2}">{{playerStateCtrl.players[2].login}} </span>
+                      <input type="checkbox" ng-checked="playerStateCtrl.buildProgress[2][$index+2].id == 3" disabled/>
+                      <div>
+                        <span ng-class="{'text-danger': playerStateCtrl.buildProgress[2][$index+2].id == 0,
+                        'text-warning': playerStateCtrl.buildProgress[2][$index+2].id == 1,
+                        'text-info': playerStateCtrl.buildProgress[2][$index+2].id == 2,
+                        'text-success': playerStateCtrl.buildProgress[2][$index+2].id == 3}">
+                          Status: {{playerStateCtrl.buildProgress[2][$index+2].name}}</span>
+
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                      Gracz: <span class="strong" ng-class="{'text-warning': playerStateCtrl.myId == 3}">{{playerStateCtrl.players[3].login}} </span>
+                      <input type="checkbox" ng-checked="playerStateCtrl.buildProgress[3][$index+2].id == 3" disabled/>
+                      <div>
+                        <span ng-class="{'text-danger': playerStateCtrl.buildProgress[3][$index+2].id == 0,
+                        'text-warning': playerStateCtrl.buildProgress[3][$index+2].id == 1,
+                        'text-info': playerStateCtrl.buildProgress[3][$index+2].id == 2,
+                        'text-success': playerStateCtrl.buildProgress[3][$index+2].id == 3}">
+                          Status: {{playerStateCtrl.buildProgress[3][$index+2].name}}</span>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</section>
+

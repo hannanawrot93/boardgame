@@ -1,0 +1,29 @@
+.login-panel{
+  button{
+    margin: 30px auto;
+  }
+  .nick-form{
+    height: 120px;
+    width: 400px;
+    margin: 0 auto;
+
+    @include media(phone){
+      width: 80%;
+      height: 150px;
+    }
+    .instr{
+      font-size: 18px !important;
+      text-align: center;
+    }
+    .err{
+      color: red;
+      text-align: center;
+    }
+    input{
+      width: 236px;
+      display: block;
+      margin: 25px auto;
+    }
+  }
+
+}

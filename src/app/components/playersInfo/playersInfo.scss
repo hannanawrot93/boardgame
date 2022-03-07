@@ -1,0 +1,92 @@
+.players-info{
+  height: 600px;
+  width: 600px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  z-index: -500;
+
+  p{
+    margin: 0;
+  }
+
+  .player-box{
+    display: flex;
+    flex-basis: calc(50% - 10px);
+    flex-direction: column;
+    margin: 5px;
+
+
+    .pawn-color{
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+
+      @include media(phone){
+        height: 10px;
+        width: 10px;
+      }
+    }
+    .movement{
+      border: 2px dotted #fff;
+      padding: 10px;
+      border-radius: 8%;
+    }
+    .player1, .player2, .player3, .player4{
+      position: absolute;
+    }
+
+    .player1{
+      top: 10px;
+      left: 10px;
+
+
+    }
+    .player2{
+      top: 10px;
+      right: 10px;
+      text-align: right;
+      p{
+        text-align: right;
+      }
+    }
+    .player3{
+      bottom: 10px;
+      left: 10px;
+    }
+    .player4{
+      bottom: 10px;
+      right: 10px;
+      text-align: right;
+
+      p{
+        text-align: right;
+      }
+    }
+  }
+
+  @include media(phone){
+    width: 210px;
+    height: 210px;
+    left: 30px;
+    top: 30px;
+  }
+
+  @include media(tablet){
+    width: 380px;
+    height: 380px;
+    top: 60px;
+    left: 60px;
+  }
+
+  @include media(medium-screens){
+    width: 450px;
+    height: 450px;
+    top: 75px;
+    left: 75px;
+  }
+}

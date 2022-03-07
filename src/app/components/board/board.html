@@ -1,0 +1,21 @@
+<section class="board">
+  <div class="board-container">
+
+    <div id="board-canvas"></div>
+
+    <players-info players="boardCtrl.players" movement-id="boardCtrl.movementId"></players-info>
+
+    <span class="pawn" id="red-1"></span>
+    <span class="pawn" id="blue-2"></span>
+    <span class="pawn" id="green-3"></span>
+    <span class="pawn" id="yellow-4"></span>
+
+    <div class="btn-wrapper">
+      <p ng-if="boardCtrl.myMovement">Twój ruch:</p>
+      <p ng-if="!boardCtrl.myMovement">Ruch gracza {{boardCtrl.players[boardCtrl.movementId].login}}</p>
+      <button ng-click="boardCtrl.rollDice()" ng-disabled="!boardCtrl.btnRoll" class="roll-btn btn btn-warning">Rzut</button>
+      <span class="rand">{{rollnumber}}</span>
+    </div>
+  </div>
+</section>
+

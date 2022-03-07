@@ -1,0 +1,92 @@
+<div class="game-rules">
+  <p>
+    Gra E-BUDOWA jest grą 4-osobową. Jej celem jest zebranie materiałów i firm
+  do budowy domu. Grę wygrywa gracz, który wykona to jako pierwszy.
+  </p>
+  <p>
+    Interfejs gry E-budowa składa się z czterech widoków:
+  </p>
+  <ul class="main-list">
+    <li>Widok logowania
+    <p>Jest to okno widoczne po wejściu na główną stronę gry. Zawiera pole do wpisania loginu
+    oraz przyciski: "Logowanie" i "O grze". Ten pierwszy powoduje przejście na stronę dostępnych gier.
+      Natomiast drugi powoduje przejście na stronę informacji o grze.
+    </p>
+    </li>
+    <li>Widok dostępnych gier
+    <p>Widok ten zawiera listę dostępnych gier. Przy każdej z gier znajduje się przycisk "Dołącz do gry",
+      który powoduje przejście na stronę istniejącej gry. Dodatkowo nad tabelą widnieje przycisk do utworzenie nowej gry.
+      Tworząc grę można wybrać, czy jeden z graczy może być botem i czy dostęp do gry ma być chroniony hasłem
+      (w tym przypadku gracze dołączający do gry będą musieli podać to samo hasło, które podał tworzący grę użytkownik).
+
+    </p>
+    </li>
+    <li>Widok gry
+      <p>Ten widok to główne okno gry. Składa się z 4 sekcji:
+
+      <ul class="second-list">
+        <li>
+        przycisk "Opuść grę".
+          <p>
+        Przycisk służący do zakończenia gry i przejścia na stronę z dostępnymi grami.
+      </p>
+
+        </li>
+        <li>
+          plansza gry
+          <p>
+            Zawiera planszę (opisano ją poniżej), wewnątrz której znajduje się "kostka" do gry oraz stany kont graczy i liczba zakupionych
+            w pełni materiałów.
+          </p>
+        </li>
+        <li>
+          sekcja komunikatów
+          <p>
+            W tej sekcji gracze mają wyświetlane co dzieje się na planszy, czyi jest ruch, decyzje graczy.
+          </p>
+        </li>
+        <li>
+          sekcja stanów budowy poszczególnych graczy
+          <p>
+            Jest to tabela z której wiadomo, ile danemu graczowi brakuje danego materiału, ile posiada, jakie etapy firmy już ukończyły.
+          </p>
+        </li>
+      </ul>
+      </p>
+    </li>
+  </ul>
+  <p>PLANSZA</p>
+  <p>
+  Gracze poruszają swoimi pionkami na planszy rzucając kostką. Plansza gry składa się z 40 pól 5 różnych rodzajów.
+  </p>
+  <ul class="main-list">
+    <li>
+      pole START - po przejściu przez to pole gracze otrzymują wynagrodzenie, w zależności od zawodu, który został
+      im przydzielony na początku gry.
+    </li>
+    <li>
+      pole ARCHITEKT - znajdując się  na tym polu gracz może zamówić projekt domu, niezbędny do budowy domu.
+    </li>
+    <li>
+      pole URZĄD - znajdując się  na tym polu gracz może kupić działkę, niezbędną do budowy domu.
+      Gracze wykupują sobie nawzajem działki.
+    </li>
+    <li>
+      pole SKLEP - znajdując się  na tym polu gracz może kupić materiały, niezbędne do budowy domu.
+      Gracze wykupują sobie nawzajem materiały.
+    </li>
+    <li>
+      pole PYTANIE - znajdując się na tym polu gracz odpowiada na wylosowane pytanie. Udzielając prawidłowej odpowiedzi
+      otrzymuje dodatkowe 1000 na konto.
+    </li>
+    <li>
+      pole KARA - znajdując się na tym polu gracz otrzymuje karę pieniężną, która może mieć różną wysokość.
+    </li>
+  </ul>
+  <p>Ograniczenia kolejnościowe</p>
+  <p>Ograniczenia te dotyczą zakupu działki, projektu oraz firm wykonujących dany etap.
+  Najpierw musi być kupiona działka, potem projekt, potem firmy. Każda z firm i projekt muszą ukończyć pracę, aby można
+    było zamówić następną.
+  </p>
+</div>
+

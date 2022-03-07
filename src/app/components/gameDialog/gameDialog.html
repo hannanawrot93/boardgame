@@ -1,0 +1,158 @@
+<section class="game-dialog">
+  <div class="welcome-message" ng-if="!gameDialogCtrl.isRunning">
+    <p>Witaj w grze! Zaczekaj na pozostałych graczy, aby rozpocząć grę...</p>
+  </div>
+
+  <div class="welcome-message" ng-if="gameDialogCtrl.welcome">
+    <p>Są już wszyscy gracze. Zaczynamy grę. Twój kolor pionka to {{pawns[gameDialogCtrl.myId]}}.
+      Twój zawód to: {{gameDialogCtrl.table.proffessions[gameDialogCtrl.myId]}}.
+      Podczas każdego przejścia przez pole START otrzymasz {{gameDialogCtrl.table.rewards[gameDialogCtrl.myId]}} wynagrodzenia
+      minus koszty utrzymania działki. Jeśli nie masz kupionej działki, to wynagrodzenie będzie pomniejszone o 1200.
+    </p>
+  </div>
+
+  <div class="win-message" ng-if="(gameDialogCtrl.win) &&(gameDialogCtrl.myId != gameDialogCtrl.winServerMsg.winner)">
+    <p>Gracz {{gameDialogCtrl.players[winServerMsg.winner].login}} wygrał grę. </p>
+    <p>Aby przejść na stronę dostępnych aktualnie gier kliknij przycisk Zakończ.</p>
+    <button ng-click="endGame()">Zakończ</button>
+  </div>
+  <div class="win-message" ng-if="(gameDialogCtrl.win) &&(gameDialogCtrl.myId == gameDialogCtrl.winServerMsg.winner)">
+    <p>Wygrałeś grę !! Gratulacje !!</p>
+    <p>Aby przejść na stronę dostępnych aktualnie gier kliknij przycisk Zakończ.</p>
+    <button ng-click="endGame()">Zakończ</button>
+  </div>
+
+
+  <div class="leave-message" ng-if="gameDialogCtrl.leave">
+    <p>Gracz {{gameDialogCtrl.leaveServerMsg.login}} opuścił grę. </p>
+  </div>
+
+  <div class="who-message"  ng-if="(gameDialogCtrl.isRunning)">
+    <p ng-if="(!gameDialogCtrl.myMovement)">Ruch gracza {{gameDialogCtrl.players[gameDialogCtrl.movementId].login}},
+    który ma kolor pionka {{pawns[gameDialogCtrl.movementId]}}</p>
+
+    <p ng-if="(gameDialogCtrl.myMovement)">Twój ruch!</p>
+    <p ng-if="(gameDialogCtrl.startOver && gameDialogCtrl.myMovement)">
+      Przechodzisz przez pole START i otrzymujesz wynagrodzenie {{gameDialogCtrl.players[gameDialogCtrl.movementId].startReward}}</p>
+    <p ng-if="(gameDialogCtrl.startOver) && (!gameDialogCtrl.myMovement)">
+      Gracz {{gameDialogCtrl.players[gameDialogCtrl.movementId].login}}
+      przechodzi przez pole START i otrzymuje wynagrodzenie {{gameDialogCtrl.players[gameDialogCtrl.movementId].startReward}}</p>
+  </div>
+
+  <div class="response-message" ng-if="gameDialogCtrl.response">
+    <p>{{responseMessage}}
+    </p>
+  </div>
+
+  <div class="other-player-message" ng-if="(!gameDialogCtrl.myMovement) && (fieldName != '')">
+    <p>Gracz {{gameDialogCtrl.players[gameDialogCtrl.movementId].login}}, który ma kolor pionka
+      {{pawns[gameDialogCtrl.movementId]}} znajduje się na polu {{fieldName}}.</p>
+  </div>
+
+  <div class="shop" ng-if="isShop && gameDialogCtrl.myMovement">
+    <p ng-if="resultProducts.length > 0">Witaj w sklepie {{shop.name}}. Wybierz z listy dostępnych materiałów co chcesz kupić.</p>
+    <p ng-if="resultProducts.length == 0">Witaj w sklepie {{shop.name}}. Niestety nie mamy już żadnych produktów na sprzedaż.</p>
+    <ul class="shop-products">
+      <li class="product" ng-repeat="product in shop.products | filter:{count: '!0'} as resultProducts" ng-class="{odd: $index % 2 == 1, even: $index % 2 == 0}">
+        <div class="row">
+          <div class="prod-attr-container prod-name col-lg-2 col-md-2 col-sm-12 col-xs-12">
+            {{product.name}}
+          </div>
+          <div class="prod-attr-container col-lg-2 col-md-2 col-sm-6 col-xs-12">
+            Dodaj do koszyka <input type="checkbox" ng-model="product.selected"/>
+          </div>
+          <div class="prod-attr-container col-lg-2 col-md-2 col-sm-6 col-xs-12">
+            Liczba {{product.unit}} <input type="number" ng-model="product.selectedCount" max="{{product.count}}" min="0" value="0" ng-if="product.selected"/>
+          </div>
+
+          <div class="prod-attr-container col-lg-2 col-md-2 col-sm-4 col-xs-12">
+            Dostępne: {{product.count}} {{product.unit}}
+          </div>
+          <div class="prod-attr-container col-lg-2 col-md-2 col-sm-4 col-xs-12">
+            Cena za 1 {{product.unit}}: {{product.price}}
+          </div>
+          <div class="prod-attr-container col-lg-2 col-md-2 col-sm-4 col-xs-12">
+            Etap budowy: {{product.stage}} - {{gameDialogCtrl.allStages[product.stage]}}
+          </div>
+        </div>
+
+      </li>
+    </ul>
+
+    <button class="btn btn-default" ng-click="buyMaterial()" ng-if="resultProducts.length > 0">Kup wybrane materiały</button>
+    <span class="prod-error">{{gameDialogCtrl.productError}}</span>
+  </div>
+
+  <div class="question" ng-if="isQuestion && gameDialogCtrl.myMovement">
+    <p class="question-text">{{question.text}}</p>
+    <ul class="answers-list">
+      <li class="answer" ng-repeat="answer in question.answers">
+        <input type="radio" ng-model="gameDialogCtrl.selectedAnswer" ng-value="{{$index}}"/> {{answer}}
+      </li>
+
+
+    </ul>
+    <button ng-click="answerQuestion()" class="btn btn-default">Odpowiadam</button>
+
+  </div>
+
+  <div class="office" ng-if="isOffice && gameDialogCtrl.myMovement">
+    <p ng-if="(office.plots.length > 0)&&(gameDialogCtrl.players[gameDialogCtrl.myId].plot == -1)">Witaj w urzędzie. Możesz tu kupić działkę budowlaną spośród następujących.</p>
+    <p ng-if="(office.plots.length == 0)&&(gameDialogCtrl.players[gameDialogCtrl.myId].plot == -1)">Witaj w urzędzie. Niestety nie ma już żadnych działek budowlanych na sprzedaż.</p>
+    <p ng-if="gameDialogCtrl.players[gameDialogCtrl.myId].plot != -1">Witaj w urzędzie. Masz już kupioną działkę budowlaną.</p>
+
+    <ul class="plots-list" ng-if="(office.plots.length > 0) &&(gameDialogCtrl.players[gameDialogCtrl.myId].plot == -1)">
+
+      <li class="plot" ng-repeat="plot in office.plots">
+
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"><input type="radio" ng-model="gameDialogCtrl.selectedPlot" ng-value="{{$index}}"/></div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">Odległość od miasta: {{plot.distance}}</div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">Cena: {{plot.price}}</div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">Koszt: {{plot.cost}}</div>
+        </div>
+      </li>
+    </ul>
+    <button ng-click="buyPlot()"  class="btn btn-default" ng-if="(office.plots.length > 0) &&(gameDialogCtrl.players[gameDialogCtrl.myId].plot == -1)">Kupuję wybraną działkę</button>
+    <span>{{gameDialogCtrl.plotError}}</span>
+  </div>
+
+  <div class="architect" ng-if="isArchitect && gameDialogCtrl.myMovement">
+    <p ng-if="gameDialogCtrl.availableArchitects[gameDialogCtrl.myId]">Ten architekt wykonuje projekty domów za {{architect.price}} złotych. Czas oczekiwanie
+    na projekt wynosi {{architect.time}} kolejkę. Czy chcesz zamówić projekt u tego architekta?</p>
+
+    <p ng-if="(!gameDialogCtrl.availableArchitects[gameDialogCtrl.myId]) && (gameDialogCtrl.players[gameDialogCtrl.myId].plot == -1)">
+      Nie masz jeszcze działki, żeby kupić projekt</p>
+
+    <p ng-if="(!gameDialogCtrl.availableArchitects[gameDialogCtrl.myId]) && (gameDialogCtrl.players[gameDialogCtrl.myId].project != -1)">
+      Masz już kupiony projekt domu</p>
+
+    <button ng-click="buyProject()"   class="btn btn-default" ng-if="gameDialogCtrl.availableArchitects[gameDialogCtrl.myId]">Zamawiam projekt</button>
+    <span>{{gameDialogCtrl.architectError}}</span>
+  </div>
+
+  <div class="mandate" ng-if="isMandate && gameDialogCtrl.myMovement">
+    <p>{{mandate.text}}</p>
+
+  </div>
+
+  <button ng-click="endMovement()"  class="btn btn-success" ng-if="btnEnd">Zakończ ruch</button>
+
+  <div class="firms" ng-if="(btnEnd) && (gameDialogCtrl.availableFirms[gameDialogCtrl.myId] != -1) && (gameDialogCtrl.availableFirms[gameDialogCtrl.myId].length > 0)&& (!angular.isUndefined(gameDialogCtrl.availableFirms[gameDialogCtrl.myId]))">
+      <p class="firms-text">Czy chcesz zamówić jakąś firmę z następujących? </p>
+      <ul class="firms-list">
+        <li class="firm">
+          <input type="radio" ng-model="gameDialogCtrl.selectedFirm" ng-value="-1"/> Nie zamawiam żadnej firmy
+        </li>
+        <li class="firm" ng-repeat="firm in gameDialogCtrl.availableFirms[gameDialogCtrl.myId]">
+          <input type="radio" ng-model="gameDialogCtrl.selectedFirm" ng-value="{{firm}}"
+                 ng-disabled="firm.price <= gameDialogCtrl.players[gameDialogCtrl.myId].money"/> {{firm}}
+        </li>
+
+
+      </ul>
+      {{gameDialogCtrl.selectedFirm}}
+  </div>
+
+</section>
+

@@ -1,0 +1,49 @@
+<div class="players-info">
+  <div class="player-box">
+    <div class="player1" ng-class="{movement: playersInfoCtrl.movementId == 0}">
+      <span class="pawn-color red"></span>
+      <p>{{playersInfoCtrl.players[0].login}}</p>
+      <p>Stan konta: {{playersInfoCtrl.players[0].money}}</p>
+      <p  ng-if="false">Liczba zakupów: <span ng-if="false">{{playersInfoCtrl.players[0].buyList | filter: {lacks: "0"} as resultBuyList0}}</span>
+        {{resultBuyList0.length}}</p>
+    </div>
+
+  </div>
+  <div class="player-box">
+    <div class="player2" ng-class="{movement: playersInfoCtrl.movementId == 1}">
+      <span class="pawn-color blue"></span>
+      <p>{{playersInfoCtrl.players[1].login}}</p>
+      <p>Stan konta: {{playersInfoCtrl.players[1].money}}</p>
+      <p  ng-if="false">Liczba zakupów:
+        <span ng-if="false">{{playersInfoCtrl.players[1].buyList | filter: {lacks: "0"} as resultBuyList1}}</span>
+        {{resultBuyList1.length}}
+      </p>
+    </div>
+
+  </div>
+  <div class="player-box">
+    <div class="player3" ng-class="{movement: playersInfoCtrl.movementId == 2}">
+      <span class="pawn-color green"></span>
+      <p>{{playersInfoCtrl.players[2].login}}</p>
+      <p>Stan konta: {{playersInfoCtrl.players[2].money}}</p>
+      <p ng-if="false">Liczba zakupów:
+        <span>{{playersInfoCtrl.players[2].buyList | filter: {lacks: "0"} as resultBuyList2}}</span>
+        {{resultBuyList2.length}}
+      </p>
+    </div>
+
+  </div>
+  <div class="player-box">
+    <div class="player4" ng-class="{movement: playersInfoCtrl.movementId == 3}">
+      <span class="pawn-color yellow"></span>
+      <p>{{playersInfoCtrl.players[3].login}}</p>
+      <p>Stan konta: {{playersInfoCtrl.players[3].money}}</p>
+      <p ng-if="false">Liczba zakupów:
+        <span ng-if="false">{{playersInfoCtrl.players[3].buyList | filter: {lacks: "0"} as resultBuyList3}}</span>
+        {{resultBuyList3.length}}
+      </p>
+    </div>
+
+  </div>
+</div>
+

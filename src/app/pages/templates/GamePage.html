@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="title"></div>
+  <button class="btn btn-danger leave-btn" ng-click="gamePageCtrl.leaveTable()">Opuść grę</button>
+
+  <board roll-dice="gamePageCtrl.rollDice()" rollresponse="gamePageCtrl.rollresponse"
+  my-id="gamePageCtrl.myId" my-login="gamePageCtrl.myLogin" my-table-id="gamePageCtrl.myTableId"
+         my-movement="gamePageCtrl.myMovement" movement-id="gamePageCtrl.movementId" table="gamePageCtrl.table"
+         players="gamePageCtrl.players" btn-roll="gamePageCtrl.btnRoll" server-response="gamePageCtrl.serverResponse"></board>
+
+  <game-dialog rollresponse="gamePageCtrl.rollresponse"
+         my-id="gamePageCtrl.myId" my-login="gamePageCtrl.myLogin" my-table-id="gamePageCtrl.myTableId"
+         my-movement="gamePageCtrl.myMovement" movement-id="gamePageCtrl.movementId" table="gamePageCtrl.table"
+               welcome="gamePageCtrl.welcome"
+         players="gamePageCtrl.players" is-running="gamePageCtrl.isRunning"
+               buy-material-send-server="gamePageCtrl.buyMaterialSendServer(param1, param2, param3)"
+               buy-plot-send-server="gamePageCtrl.buyPlotSendServer(param1, param2)"
+               buy-project-send-server="gamePageCtrl.buyProjectSendServer(param1)"
+               answer-question-send-server="gamePageCtrl.answerQuestionSendServer(param1)"
+               penalty-accept-send-server="gamePageCtrl.penaltyAcceptSendServer(param1)"
+               end-movement-send-server="gamePageCtrl.endMovementSendServer(param1)"
+               server-response="gamePageCtrl.serverResponse"
+               buy-material-server-msg="gamePageCtrl.buyMaterialServerMsg"
+               buy-plot-server-msg="gamePageCtrl.buyPlotServerMsg"
+               buy-project-server-msg="gamePageCtrl.buyProjectServerMsg"
+               answer-question-server-msg="gamePageCtrl.answerQuestionServerMsg"
+               penalty-accept-server-msg="gamePageCtrl.penaltyAcceptServerMsg"
+               leave-server-msg="gamePageCtrl.leaveServerMsg"
+               end-movement-server-msg="gamePageCtrl.endMovementServerMsg"
+               win-server-msg="gamePageCtrl.winServerMsg"
+               available-firms="gamePageCtrl.availableFirms"
+               available-architects="gamePageCtrl.availableArchitects"
+  >
+
+  </game-dialog>
+
+  <player-state rollresponse="gamePageCtrl.rollresponse"
+                my-id="gamePageCtrl.myId" my-login="gamePageCtrl.myLogin" my-table-id="gamePageCtrl.myTableId"
+                my-movement="gamePageCtrl.myMovement" movement-id="gamePageCtrl.movementId" table="gamePageCtrl.table"
+                players="gamePageCtrl.players" is-running="gamePageCtrl.isRunning"
+                server-response="gamePageCtrl.serverResponse"
+                buy-material-server-msg="gamePageCtrl.buyMaterialServerMsg"
+                buy-plot-server-msg="gamePageCtrl.buyPlotServerMsg"
+                buy-project-server-msg="gamePageCtrl.buyProjectServerMsg"
+                answer-question-server-msg="gamePageCtrl.answerQuestionServerMsg"
+                penalty-accept-server-msg="gamePageCtrl.penaltyAcceptServerMsg"
+                end-movement-server-msg="gamePageCtrl.endMovementServerMsg"
+                available-firms="gamePageCtrl.availableFirms"
+                available-architects="gamePageCtrl.availableArchitects"
+  ></player-state>
+</div>

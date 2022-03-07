@@ -1,0 +1,11 @@
+<section class="login-panel">
+  <div class="nick-form">
+    <p class="instr">Podaj swój nick poniżej i rozpocznij grę</p>
+    <input type="text" class="form-control" ng-model="loginPanelCtrl.myLogin" maxlength="15" placeholder="nick"/>
+
+    <p class="err">{{loginPanelCtrl.errorLogin}}</p>
+  </div>
+    <button type="button" class="btn btn-danger" ng-click="loginPanelCtrl.login()"
+            ng-disabled="loginPanelCtrl.myLogin == ''">Rozpocznij grę</button>
+    <button type="button" class="btn btn-danger" ng-click="loginPanelCtrl.about()">O grze</button>
+</section>

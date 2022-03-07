@@ -1,0 +1,26 @@
+<section class="new-table">
+  <button type="button" class="btn btn-danger btn-toogle" data-toggle="collapse" data-target="#table-params">Nowy stół</button>
+  <div id="table-params" class="collapse">
+    <form novalidate id="newtable-form">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" ng-model="NewTableCtrl.tableBot">
+          Możliwy gracz bot
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" ng-model="NewTableCtrl.tableClosed">
+          Dostęp do gry chroniony hasłem
+        </label>
+      </div>
+      <div class="form-group" ng-if="NewTableCtrl.tableClosed">
+        <label for="newtable-password">Hasło dostępu:</label>
+        <input type="text" class="form-control" id="newtable-password" placeholder="Hasło" ng-model="NewTableCtrl.tablePassword"
+               minlength="4" maxlength="4">
+      </div>
+      <button ng-click="NewTableCtrl.newTable()" class="btn btn-primary" ng-disabled="((NewTableCtrl.tableClosed) && (!NewTableCtrl.tablePassword))">Utwórz stół</button>
+    </form>
+
+  </div>
+</section>

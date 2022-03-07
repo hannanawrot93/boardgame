@@ -1,0 +1,26 @@
+.all-games{
+  p{
+    margin-top: 50px;
+  }
+  .append-btn{
+    text-align: right;
+    width: 236px;
+
+    @include media(phone){
+      width: 90px;
+    }
+  }
+  button{
+    color: black;
+    display: inline-block !important;
+
+    @include media(phone){
+      width: 90px;
+      height: 32px;
+      font-size: 14px !important;
+      vertical-align: middle !important;
+    }
+  }
+
+
+}
